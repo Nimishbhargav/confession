@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Story</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom, #ffe6f0, #ffc1d9);
+      min-height: 100vh;
+      padding: 60px 20px 100px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.7em;
+      color: #d81b60;
+      text-shadow: 0 0 10px #ff9ebd;
+      margin-bottom: 40px;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    .typewriter {
+      font-size: 1.3em;
+      text-align: center;
+      color: #6a1b4d;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #6a1b4d;
+      width: 0;
+      margin: 0 auto 50px;
+      animation: typing 4s steps(50, end) forwards, blink .8s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff99bb; }
+      to { text-shadow: 0 0 25px #f06292; }
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: #f06292;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .entry {
+      padding: 20px 30px;
+      position: relative;
+      width: 45%;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 105, 135, 0.25);
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 0.8s ease;
+    }
+
+    .entry.left { left: 0; }
+    .entry.right { left: 55%; }
+
+    .entry.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .entry::before {
+      content: '';
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      background-color: #e91e63;
+      border-radius: 50%;
+      top: 25px;
+      z-index: 1;
+    }
+
+    .left::before { right: -11px; }
+    .right::before { left: -11px; }
+
+    h3 {
+      margin: 0;
+      color: #e91e63;
+      font-weight: 600;
+    }
+
+    p {
+      margin-top: 8px;
+      font-size: 1.05em;
+      color: #444;
+    }
+
+    .next-btn {
+      display: block;
+      margin: 60px auto 0;
+      padding: 14px 30px;
+      font-size: 1.1em;
+      background: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 0 20px #ff80ab;
+      transition: 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .next-btn:hover {
+      transform: scale(1.05);
+      background: #c2185b;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 10px #ff99bb; }
+      50% { box-shadow: 0 0 25px #f06292; }
+    }
+
+    @media (max-width: 768px) {
+      .timeline::after { left: 12px; }
+      .entry { width: 100% !important; left: 0 !important; padding-left: 50px; }
+      .entry::before { left: 18px !important; }
+    }
+
+    .heart {
+      position: fixed;
+      width: 16px;
+      height: 16px;
+      background: #ff6fa5;
+      top: -20px;
+      left: 0;
+      transform: rotate(45deg);
+      animation: floatUp 10s linear infinite;
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: #ff6fa5;
+      border-radius: 50%;
+    }
+
+    .heart::before { top: -8px; left: 0; }
+    .heart::after { left: -8px; top: 0; }
+
+    @keyframes floatUp {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Our Journey 🌸</h1>
+  <div class="typewriter">Let me take you through a few moments...</div>
+
+  <div class="timeline">
+    <div class="entry left"><h3>📚 School Memories</h3><p>I saw you… and everything felt different. You may not have noticed — but I always did.</p></div>
+    <div class="entry right"><h3>💬 Silent Glances</h3><p>From shared hallways to random smiles — they meant more to me than you knew.</p></div>
+    <div class="entry left"><h3>🎓 Different Colleges</h3><p>Even with new paths, some memories stay — and you were always one of them.</p></div>
+    <div class="entry right"><h3>💌 This Moment</h3><p>I’m finally gathering the courage to say things I’ve kept in my heart for too long.</p></div>
+  </div>
+
+  <button class="next-btn" onclick="location.href='the-confession.html'">Next ➤ My Confession</button>
+
+  <script>
+    const entries = document.querySelectorAll('.entry');
+    window.addEventListener('scroll', () => {
+      entries.forEach(entry => {
+        const rect = entry.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          entry.classList.add('visible');
+        }
+      });
+    });
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 6 + Math.random() * 4 + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }
+    setInterval(createHeart, 300);
+  </script>
+
+</body>
+</html>

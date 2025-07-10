@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Confession</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom, #fff0f6, #ffc1e3);
+      min-height: 100vh;
+      padding: 60px 20px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .container {
+      max-width: 750px;
+      margin: auto;
+      background: white;
+      padding: 50px 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255,105,135,0.3);
+      text-align: center;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1.5s ease forwards;
+    }
+
+    h1 {
+      color: #d81b60;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #f48fb1;
+      animation: glow 2s infinite alternate;
+    }
+
+    .typewriter {
+      font-size: 1.3em;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #d81b60;
+      width: 0;
+      margin: 0 auto 40px;
+      animation: typing 4s steps(40, end) forwards, blink .8s step-end infinite;
+      color: #6a1b4d;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.8;
+      color: #444;
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: reveal 2s ease forwards;
+      animation-delay: 2.5s;
+    }
+
+    .btn {
+      padding: 12px 30px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 30px;
+      background: #e91e63;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 20px #f06292;
+      transition: 0.3s ease;
+      animation: pulseBtn 2s infinite;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background: #c2185b;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    @keyframes reveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff99bb; }
+      to { text-shadow: 0 0 25px #f06292; }
+    }
+
+    @keyframes pulseBtn {
+      0%, 100% { box-shadow: 0 0 10px #ff99bb; }
+      50% { box-shadow: 0 0 25px #f06292; }
+    }
+
+    .heart {
+      position: fixed;
+      width: 16px;
+      height: 16px;
+      background: #ff6fa5;
+      top: -20px;
+      left: 0;
+      transform: rotate(45deg);
+      animation: floatUp 10s linear infinite;
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: #ff6fa5;
+      border-radius: 50%;
+    }
+
+    .heart::before { top: -8px; left: 0; }
+    .heart::after { left: -8px; top: 0; }
+
+    @keyframes floatUp {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Ishika, I Need to Say This...</h1>
+    <div class="typewriter">I’ve been meaning to tell you something for a long time...</div>
+
+    <p>
+      I’ve had feelings for you for a long time.<br />
+      Every memory of school, your smile, your presence — it stayed.<br /><br />
+      And even though life took us to different places,<br />
+      My heart kept holding onto those moments.
+    </p>
+
+    <p>
+      So here I am... taking a deep breath and saying what I’ve always wanted to.<br />
+      You are special to me, and you always have been.
+    </p>
+
+    <button class="btn" onclick="location.href='letter.html'">Read My Letter 💌</button>
+  </div>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 6 + Math.random() * 4 + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }
+    setInterval(createHeart, 250);
+  </script>
+
+</body>
+</html>

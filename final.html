@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You, Ishika 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom, #fff8f9, #ffe2ec);
+      min-height: 100vh;
+      padding: 60px 20px;
+      overflow-x: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .box {
+      background: white;
+      max-width: 720px;
+      padding: 50px 30px;
+      border-radius: 18px;
+      box-shadow: 0 0 20px rgba(255, 182, 193, 0.25);
+      text-align: center;
+      animation: fadeUp 1.8s ease forwards;
+      transform: translateY(40px);
+      opacity: 0;
+    }
+
+    h1 {
+      font-size: 2.4em;
+      color: #c2185b;
+      margin-bottom: 25px;
+      text-shadow: 0 0 10px #ffccd5;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    p {
+      font-size: 1.15em;
+      color: #444;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: reveal 2s ease forwards;
+      animation-delay: 1s;
+    }
+
+    .gentle-note {
+      font-size: 1em;
+      color: #777;
+      margin-top: 10px;
+      animation-delay: 2.5s;
+    }
+
+    .btn {
+      background: #f48fb1;
+      color: white;
+      font-size: 1.05em;
+      padding: 10px 26px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #f8bbd0;
+      animation: pulse 3s infinite;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #d81b60;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes reveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 8px #ffb6c1; }
+      to { text-shadow: 0 0 18px #f06292; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 10px #ff99bb; }
+      50% { box-shadow: 0 0 20px #f06292; }
+    }
+
+    .heart {
+      position: fixed;
+      width: 16px;
+      height: 16px;
+      background: #ffc0cb;
+      top: -20px;
+      left: 0;
+      transform: rotate(45deg);
+      animation: floatUp 12s linear infinite;
+      opacity: 0.2;
+      z-index: 0;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: #ffc0cb;
+      border-radius: 50%;
+    }
+
+    .heart::before { top: -8px; left: 0; }
+    .heart::after { left: -8px; top: 0; }
+
+    @keyframes floatUp {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.9em; }
+      p { font-size: 1em; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h1>Thank You, Ishika 💖</h1>
+
+    <p>
+      I don’t know what your heart feels,<br />
+      but I truly hope this made you smile — even a little.<br /><br />
+
+      This isn’t to make you decide anything.<br />
+      It’s just something I wanted to share… honestly, peacefully.
+    </p>
+
+    <p class="gentle-note">
+      No pressure. No expectations.  
+      <br>Take your time — even silence is understood.
+    </p>
+
+    <br><br>
+    <button class="btn" onclick="location.href='index.html'">🔁 Start Over</button>
+  </div>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 6 + Math.random() * 5 + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 12000);
+    }
+    setInterval(createHeart, 350);
+  </script>
+
+</body>
+</html>

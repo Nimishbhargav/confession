@@ -1,0 +1,152 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hi Ishika 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: radial-gradient(circle, #fff0f5, #ffdce5);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .container {
+      text-align: center;
+      padding: 100px 20px;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5em;
+      color: #d81b60;
+      text-shadow: 0 0 15px #ff99bb;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    .typewriter {
+      margin: 40px auto;
+      font-size: 1.5em;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #d81b60;
+      width: 0;
+      animation: typing 4s steps(40, end) forwards, blink 1s step-end infinite;
+      color: #6d214f;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff99bb; }
+      to { text-shadow: 0 0 25px #f06292; }
+    }
+
+    .start-btn {
+      margin-top: 50px;
+      padding: 14px 40px;
+      font-size: 1.2em;
+      background: linear-gradient(to right, #f50057, #d81b60);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 0 25px #f48fb1;
+      animation: pulse 2s infinite;
+    }
+
+    .start-btn:hover {
+      transform: scale(1.07);
+      background: #c2185b;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 10px #ff99bb; }
+      50% { box-shadow: 0 0 25px #f06292; }
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .heart {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: #ff6fa5;
+      top: -20px;
+      transform: rotate(45deg);
+      animation: floatUp 10s linear infinite;
+      opacity: 0.5;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: #ff6fa5;
+      border-radius: 50%;
+    }
+
+    .heart::before { top: -8px; left: 0; }
+    .heart::after { left: -8px; top: 0; }
+
+    @keyframes floatUp {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2.3em; }
+      .typewriter { font-size: 1.2em; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Hi Ishika 💖</h1>
+    <div class="typewriter">Before you close this... please read it once.</div>
+    <button class="start-btn" onclick="location.href='journey.html'">Let’s Begin ➤</button>
+  </div>
+
+  <div class="hearts" id="hearts"></div>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 6 + Math.random() * 4 + 's';
+      document.getElementById('hearts').appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }
+    setInterval(createHeart, 300);
+  </script>
+
+</body>
+</html>

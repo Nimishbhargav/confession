@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Letter to Ishika 💌</title>
+  <link href="https://fonts.googleapis.com/css2?family=Zeyada&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+    body {
+      background: radial-gradient(circle at top, #fff1f8, #ffc1d3);
+      font-family: 'Zeyada', cursive;
+      min-height: 100vh;
+      padding: 80px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      overflow-x: hidden;
+    }
+
+    .letter-box {
+      background: #fff;
+      padding: 50px 40px;
+      max-width: 800px;
+      font-size: 2em;
+      line-height: 1.8;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 105, 135, 0.3);
+      color: #d81b60;
+      text-align: center;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .typewriter-text span {
+      display: inline;
+      opacity: 0;
+      animation: reveal 0.03s linear forwards;
+    }
+
+    @keyframes reveal {
+      to { opacity: 1; }
+    }
+
+    .btn {
+      font-family: 'Quicksand', sans-serif;
+      margin-top: 50px;
+      background: #e91e63;
+      color: white;
+      font-size: 1em;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #f48fb1;
+      animation: pulse 2s infinite;
+    }
+
+    .btn:hover {
+      background: #c2185b;
+      transform: scale(1.05);
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 10px #ff99bb; }
+      50% { box-shadow: 0 0 25px #f06292; }
+    }
+
+    .heart {
+      position: fixed;
+      width: 16px;
+      height: 16px;
+      background: #ff6fa5;
+      top: -20px;
+      left: 0;
+      transform: rotate(45deg);
+      animation: floatUp 10s linear infinite;
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: #ff6fa5;
+      border-radius: 50%;
+    }
+
+    .heart::before { top: -8px; left: 0; }
+    .heart::after { left: -8px; top: 0; }
+
+    @keyframes floatUp {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="letter-box">
+    <div class="typewriter-text" id="letter"></div>
+    <button class="btn" onclick="location.href='final.html'">Next ➤</button>
+  </div>
+
+  <script>
+    const message = `
+Dear Ishika,
+
+I don’t know if words can express it fully,
+But every time I saw you — everything felt warm and right.
+
+From the smallest smile to the sound of your laughter,
+It has all stayed in my heart all these years.
+
+I never said this out loud, maybe out of fear or uncertainty,
+But I’ve always admired you deeply — quietly, completely.
+
+And this is me… just being honest. Being real.
+
+Yours, if you’d allow me to be,
+Nimish 💖
+    `;
+
+    const container = document.getElementById('letter');
+    let delay = 0;
+
+    message.split('').forEach((char, i) => {
+      const span = document.createElement('span');
+      span.textContent = char;
+      span.style.animationDelay = `${delay}s`;
+      delay += 0.03;
+      container.appendChild(span);
+    });
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 6 + Math.random() * 4 + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }
+    setInterval(createHeart, 250);
+  </script>
+
+</body>
+</html>
