@@ -142,30 +142,18 @@
       50% { box-shadow: 0 0 25px #f06292; }
     }
 
-   /* Small Devices (Phones) */
-@media (max-width: 600px) {
-  .container {
-    flex-direction: column;
-    padding: 8px;
-  }
-  h1 {
-    font-size: 1.5rem;
-  }
-}
+   @media (min-aspect-ratio: 3/2) {
+      body {
+        padding: calc(var(--padding) * 1.5);
+      }
+    }
 
-/* Medium Devices (Tablets) */
-@media (min-width: 601px) and (max-width: 992px) {
-  .container {
-    padding: 12px;
-  }
-}
-
-/* Large Devices (Desktops) */
-@media (min-width: 993px) {
-  .container {
-    padding: 16px;
-  }
-}
+    /* Landscape phones */
+    @media (max-height: 500px) and (orientation: landscape) {
+      body {
+        font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+      }
+    }
 
 
     .heart {
